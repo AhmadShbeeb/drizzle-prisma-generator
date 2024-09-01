@@ -24,7 +24,7 @@ const prismaToDrizzleType = (type: string, colDbName: string, defVal?: string) =
         return `date('${colDbName}', { mode: 'date' })`;
       }
 			pgImports.add('timestamp');
-			return `timestamp('${colDbName}', { precision: 3 })`;
+			return `timestamp('${colDbName}', { precision: 6 })`;
 		case 'decimal':
 			pgImports.add('decimal');
 			return `decimal('${colDbName}', { precision: 65, scale: 30 })`;

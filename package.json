@@ -1,13 +1,13 @@
 {
 	"name": "drizzle-prisma-generator-fix",
 	"author": "ahmad-shbeeb",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"description": "Generate Drizzle schema from Prisma schema",
 	"scripts": {
 		"run": "pnpm run build && cd ../prisma-testbench && npx prisma generate dev && code ./src/db/schema.ts",
 		"build": "pnpm tsx scripts/build.ts && cd dist/ && npm pack && mv *.tgz package.tgz",
 		"pack": "cd dist && npm pack",
-		"publish": "cd dist && npm publish package.tgz",
+		"publish": "cd dist && pnpm publish package.tgz",
 		"test": "vitest run",
 		"lint": "dprint check --list-different"
 	},
