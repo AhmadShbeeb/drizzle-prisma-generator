@@ -19,6 +19,10 @@ const prismaToDrizzleType = (type: string, colDbName: string, defVal?: string) =
 			// Drizzle doesn't support it yet...
 			throw new GeneratorError("Drizzle ORM doesn't support binary data type for PostgreSQL");
 		case 'datetime':
+      if(colDbName.includes('date')){
+        pgImports.add("date");
+        return `date('${colDbName}', { mode: 'date' })`;
+      }
 			pgImports.add('timestamp');
 			return `timestamp('${colDbName}', { precision: 3 })`;
 		case 'decimal':

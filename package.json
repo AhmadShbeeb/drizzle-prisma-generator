@@ -1,14 +1,13 @@
 {
-	"name": "drizzle-prisma-generator",
-	"author": "Drizzle Team",
-	"version": "0.1.7",
+	"name": "drizzle-prisma-generator-fix",
+	"author": "ahmad-shbeeb",
+	"version": "0.1.8",
 	"description": "Generate Drizzle schema from Prisma schema",
 	"scripts": {
 		"run": "pnpm run build && cd ../prisma-testbench && npx prisma generate dev && code ./src/db/schema.ts",
-		"build": "pnpm tsx scripts/build.ts",
-		"b": "pnpm build",
-		"pack": "(cd dist && npm pack --pack-destination ..) && rm -f package.tgz && mv *.tgz package.tgz",
-		"publish": "npm publish package.tgz",
+		"build": "pnpm tsx scripts/build.ts && cd dist/ && npm pack && mv *.tgz package.tgz",
+		"pack": "cd dist && npm pack",
+		"publish": "cd dist && npm publish package.tgz",
 		"test": "vitest run",
 		"lint": "dprint check --list-different"
 	},
@@ -42,13 +41,13 @@
 	"main": "./index.js",
 	"sideEffects": false,
 	"publishConfig": {
-		"provenance": true
+		"provenance": false
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/drizzle-team/drizzle-prisma-generator.git"
+		"url": "git+https://github.com/AhmadShbeeb/drizzle-prisma-generator.git"
 	},
-	"homepage": "https://github.com/drizzle-team/drizzle-prisma-generator",
+	"homepage": "https://github.com/AhmadShbeeb/drizzle-prisma-generator.git",
 	"dependencies": {
 		"@prisma/generator-helper": "^5.14.0"
 	}
